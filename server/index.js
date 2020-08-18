@@ -12,11 +12,14 @@ app.use(bodyparser.urlencoded({
   extended: true,
 }));
 app.use(bodyparser.json());
-app.use('/api/images/:product_id', createProxyMiddleware({ target: 'http://localhost:5000/', changeOrigin: true}))
+app.use('/api/images/:product_id', createProxyMiddleware({ target: 'http://localhost:5000/', changeOrigin: true}));
+app.use('/api/midpageimages/:id', createProxyMiddleware({ target: 'http://localhost:7000/', changeOrigin: true}));
 app.use('/api/productoptions/:id', createProxyMiddleware({ target: 'http://localhost:3001/', changeOrigin: true }));
 app.use('/api/productreviews/reviews', createProxyMiddleware({ target: 'http://localhost:4000/', changeOrigin: true}));
 
-
+app.get('/index.html:id', (req, res) => {
+  res.sendStatus(200);  // doesn't matter just dont
+});
 // probably use a modified get method here to pass in params.id and then pass that down to each of the functions in client/index.js???
 
 app.listen(port, () => {
