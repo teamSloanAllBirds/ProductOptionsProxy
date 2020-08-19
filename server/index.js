@@ -17,10 +17,9 @@ app.use('/api/midpageimages/:id', createProxyMiddleware({ target: 'http://localh
 app.use('/api/productoptions/:id', createProxyMiddleware({ target: 'http://localhost:3001/', changeOrigin: true }));
 app.use('/api/productreviews/reviews', createProxyMiddleware({ target: 'http://localhost:4000/', changeOrigin: true}));
 
-app.get('/index.html:id', (req, res) => {
-  res.sendStatus(200);  // doesn't matter just dont
+app.get('/:id', (req, res) => {
+  res.sendFile('index.html', {root: path.join(__dirname, '../public')});
 });
-// probably use a modified get method here to pass in params.id and then pass that down to each of the functions in client/index.js???
 
 app.listen(port, () => {
   console.log(`server listening at http://localhost:${port}`);
