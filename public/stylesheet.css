@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'meticularegular';
+  src: url('./webfontkit-20200812-164426/meticula-regular-webfont.woff2') format('woff2'),
+       url('./webfontkit-20200812-164426/meticula-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+body {
+  font-family: 'meticularegular', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
